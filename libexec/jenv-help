@@ -143,7 +143,7 @@ print_mgmt_commands() {
 }
 
 print_informational_commands() {
-  print_summaries commands version versions which whence
+  print_summaries commands version versions whence which
 }
 
 print_utility_commands() {
