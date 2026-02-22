@@ -138,12 +138,32 @@ if [ "$1" = "--usage" ]; then
   shift
 fi
 
+print_mgmt_commands() {
+  print_summaries add global local remove shell
+}
+
+print_informational_commands() {
+  print_summaries commands version versions whence which
+}
+
+print_utility_commands() {
+  print_summaries doctor rehash with
+}
+
 if [ -z "$1" ] || [ "$1" == "jenv" ]; then
   echo "Usage: jenv <command> [<args>]"
   [ -z "$usage" ] || exit
   echo
   echo "Some useful jenv commands are:"
-  print_summaries commands local global shell install uninstall rehash version versions which whence with add remove
+  echo
+  echo "Management commands:"
+  print_mgmt_commands
+  echo
+  echo "Informational commands:"
+  print_informational_commands
+  echo
+  echo "Utility commands:"
+  print_utility_commands
   echo
   echo "See \`jenv help <command>' for information on a specific command."
   echo "For full documentation, see: https://github.com/jenv/jenv/blob/master/README.md"
